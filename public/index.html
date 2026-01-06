@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_2</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body style="background:linear-gradient(145deg , #D5A5F8 0% , #77a5f8 100%);">
+    <div class="container" style="box-shadow: grey 5px 10px 30px;">
+        <form action="/submit" method="POST" onsubmit="return validation()">
+            <h1>Simple Form</h1>
+
+            <div class="form-row">
+                <label for="username">Username : </label>
+                <input type="text" name="username" placeholder="Enter your username" id="username"
+                    autocomplete="username" minlength="3" required>
+            </div>
+
+            <div class="form-row">
+                <label for="email">Email:</label>
+                <input type="email" name="email" placeholder="Enter your email" id="email" autocomplete="email"
+                    required>
+            </div>
+
+
+            <div class="form-row">
+                <label for="fullname">Full Name:</label>
+                <input type="text" name="fullname" placeholder="Enter your full name" id="fullname" minlength="3"
+                    required>
+            </div>
+
+            <div class="form-row">
+                <label for="phone">Phone:</label>
+                <input type="tel" name="phone" placeholder="Enter your phone number" id="phone" autocomplete="tel"
+                    pattern="[0-9]{10}" required>
+            </div>
+
+            <div class="form-row">
+                <label for="gender">Gender:</label>
+                <select name="gender" id="gender">
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <label for="country">Country:</label>
+                <select name="country" id="country">
+                    <option value="">Select Country</option>
+                    <option value="usa">USA</option>
+                    <option value="uk">UK</option>
+                    <option value="india">India</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <label for="password">Password:</label>
+                <input type="password" name="password" placeholder="Enter your password" id="password"
+                    autocomplete="current-password" minlength="8" required>
+            </div>
+
+            <div class="form-row">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" name="confirmpassword" placeholder="Enter your password" id="confirm-password"
+                    autocomplete="current-password" minlength="8" required>
+            </div>
+
+            <div class="form-row">
+                <label for="bio">Bio:</label>
+                <textarea name="bio" id="bio" placeholder="Tell us about yourself" minlength="10" required></textarea>
+            </div>
+
+
+            <label>
+                <h3 style="margin-bottom: -10px; margin-top: -8px;">Experience Level:</h3>
+            </label><br>
+            <div class="form-row">
+                <label class="labels">
+                    <input type="radio" name="experience" value="beginner"> Beginner
+                </label>
+            </div>
+            <div class="form-row">
+                <label class="labels">
+                    <input type="radio" name="experience" value="intermediate"> Intermediate
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label class="labels">
+                    <input type="radio" name="experience" value="advanced"> Advanced
+                </label>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        // Client Side Validations 
+        function validation() {
+            let Username = document.getElementById("username").value;
+            let Email = document.getElementById("email").value;
+            let Fullname = document.getElementById("fullname").value;
+            let Phone = document.getElementById("phone").value;
+            let Gender = document.getElementById("gender").value;
+            let Country = document.getElementById("country").value;
+            let Password = document.getElementById("password").value;
+            let Cpassword = document.getElementById("confirm-password").value;
+            let Bio = document.getElementById("bio").value;
+
+            if (Username === "" || Email === "" || Fullname === "" || Phone === "" || Gender === "" || Country === "" || Password === "" || Cpassword === "" || Bio === "") {
+                alert("All fields are mandatory.");
+                return false;
+            }
+            else if (Phone.length !== 10) {
+                alert("Number should be of 10 digits.");
+                return false;
+            }
+            else if (isNaN(Phone)) {
+                alert("Only Numbers are allowed.");
+                return false;
+            }
+            else if (Password != Cpassword) {
+                alert("Password doesn't match!");
+                return false;
+            }
+            let ExperienceChecked = false;
+            let ExperienceRadios = document.getElementsByName("experience");
+
+            for (let i = 0; i < ExperienceRadios.length; i++) {
+                if (ExperienceRadios[i].checked) {
+                    ExperienceChecked = true;
+                    break;
+                }
+            }
+
+            if (!ExperienceChecked) {
+                alert("Please select an experience level!");
+                return false;
+            }
+            return true;
+        }
+
+    </script>
+</body>
+
+</html>
