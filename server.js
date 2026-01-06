@@ -15,10 +15,10 @@ app.get("/", (req, res) => {
 });
 
 app.post("/submit", (req, res) => {
-    const { username, email, password, fullname, phone, gender, country, bio, experience , confirmpassword } = req.body;
+    const { username, email, password, fullname, phone, gender, country, bio, experience, confirmpassword } = req.body;
 
     res.render("result", {
-        username, email, password, fullname, phone, gender, country, bio, experience , confirmpassword
+        username, email, password, fullname, phone, gender, country, bio, experience, confirmpassword
     });
     // res.json({
     //     username, email, password, fullname, phone, gender, country, bio, experience
