@@ -40,7 +40,7 @@ app.post("/submit", (req, res) => {
         return res.status(400).send("password do not match");
     }
 
-    const validExperience = ["beginner", "intermediate", "expert"];
+    const validExperience = ["beginner", "intermediate", "advanced"];
     if(!validExperience.includes(experience)){
         return res.status(400).send("Invalid experience");
     }
