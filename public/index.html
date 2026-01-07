@@ -10,7 +10,7 @@
 
 <body style="background:linear-gradient(145deg , #D5A5F8 0% , #77a5f8 100%);">
     <div class="container" style="box-shadow: grey 5px 10px 30px;">
-        <form action="/submit" method="POST" onsubmit="return validation()">
+        <form action="/submit" method="POST" novalidate onsubmit="return validation()">   <!--novalidate attribute added to prevent browser validation and allow custom validation -->
             <h1>Simple Form</h1>
 
             <div class="form-row">
