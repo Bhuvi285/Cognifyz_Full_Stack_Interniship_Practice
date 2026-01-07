@@ -45,7 +45,7 @@ app.post("/submit", (req, res) => {
         return res.status(400).send("Invalid experience");
     }
 
-    res.send("Server-side validation passed!");
+    // res.send("Server-side validation passed!");
 
     res.render("result", {
         username, email, password, fullname, phone, gender, country, bio, experience, confirmpassword
